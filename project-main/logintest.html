@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="loginstyle.css">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <title>login page</title>
+</head>
+
+<body>
+
+  <nav>
+    <img src="icon.jpeg" alt="">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="#">Services<i class="fas fa-caret-down"></i></a>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="nearbyhospitals.html">Vaccine Availability</a></li>
+            <li><a href="#">Organ Donation</a></li>
+            <li><a href="#">Blood Donation</a></li>
+            <li><a href="#">Oxygen Availability</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="#"> Articles </a></li>
+      <li><a href="logintest.html"> Log In / Sign Up </a></li>
+    </ul>
+  </nav>
+
+
+
+  <div class="divLeft">
+    <img src="icon.jpeg" alt="error loading image" style="padding-left: 70px;">
+    <div style="font-style: italic; color:rgb(77, 42, 42);">
+      <p>P&P promises to make you healthier</p>
+    </div>
+
+  </div>
+  <div class="hero">
+    <div class="form-box">
+      <div class="buttonbox">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+        <button type="button" class="toggle-btn" onclick="register()">Register</button>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/?lang=en-in"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.google.co.in/"><i class="fab fa-google"></i></a>
+      </div>
+      <form onsubmit="return validation()" id="login" class="input-group">
+        <input type="text" class="input-field" placeholder="User Id" id="username1">
+        <span id="usererror1" style="color: red;"></span>
+        <input type="password" class="input-field" placeholder="Enter Password" id="password1">
+        <span id="passworderror1" style="color: red;"></span>
+        <button type="submit" class="submit-btn">Log In</button>
+        <br>
+        <div>
+          <button type="submit" class="submit-btn"><a href="">Forgot password</a></button>
+        </div>
+
+      </form>
+      <form onsubmit="return validation1()" id="register" class="input-group">
+        <input type="text" class="input-field" placeholder="User Id" id="username">
+        <span id="usererror" style="color: red;"></span>
+        <input type="email" class="input-field" placeholder="Email Id" id="email">
+        <span id="emailerror" style="color: red;"></span>
+        <input type="password" class="input-field" placeholder="Enter Password" id="password">
+        <span id="passworderror" style="color: red;"></span>
+        <input type="text" class="input-field" placeholder="Confirm Password" id="cpassword">
+        <span id="cpassworderror" style="color: red; padding-bottom: 10px;"></span>
+        <input type="checkbox" class="check-box"><span id="span1" style="font-size: 11px;">I agree to the <a
+            href="">terms and conditions</a></span>
+        <button type="submit" class="submit-btn">Register</button>
+      </form>
+    </div>
+
+  </div>
+  </div>
+  <script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    function register() {
+      x.style.left = "-400px";
+      y.style.left = "50px";
+      z.style.left = "110px";
+    }
+    function login() {
+      x.style.left = "50px";
+      y.style.left = "450px";
+      z.style.left = "0px";
+    }
+  </script>
+  <script type="text/javascript">
+    function validation() {
+      var username = document.getElementById('username1').value;
+      var password = document.getElementById('password1').value;
+
+      var usercheck1 = /^[A-Za-z]{3,30}$/;
+      var passwordcheck1 = /^(?=.*[0-9])(?=.*[@#$%&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+      if (usercheck1.test(username)) {
+        document.getElementById('usererror1').innerHTML = " ";
+      }
+      else {
+        document.getElementById('usererror1').innerHTML = "Username is Invalid";
+        return false;
+      }
+      if (passwordcheck1.test(password)) {
+        document.getElementById('passworderror1').innerHTML = " ";
+      }
+      else {
+        document.getElementById('passworderror1').innerHTML = " Invalid Password";
+        return false;
+      }
+    }
+    function validation1() {
+      var username = document.getElementById('username').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var cpassword = document.getElementById('cpassword').value;
+
+      var usercheck = /^[A-Za-z]{3,30}$/;
+      var emailcheck = /^[A-Za-z0-9_.]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,6}$/;
+      var passwordcheck = /^(?=.*[0-9])(?=.*[@#$%&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+      if (usercheck.test(username)) {
+        document.getElementById('usererror').innerHTML = " ";
+      }
+      else {
+        document.getElementById('usererror').innerHTML = "Username is Invalid";
+        return false;
+      }
+      if (emailcheck.test(email)) {
+        document.getElementById('emailerror').innerHTML = " ";
+      }
+      else {
+        document.getElementById('emailerror').innerHTML = " Invalid Email Id";
+        return false;
+      }
+      if (passwordcheck.test(password)) {
+        document.getElementById('passworderror').innerHTML = " ";
+      }
+      else {
+        document.getElementById('passworderror').innerHTML = " Invalid Password";
+        return false;
+      }
+      if (password.match(cpassword)) {
+        document.getElementById('cpassworderror').innerHTML = " ";
+      }
+      else {
+        document.getElementById('cpassworderror').innerHTML = "Password is not matching";
+        return false;
+      }
+
+    }
+  </script>
+</body>
+
+</html>
